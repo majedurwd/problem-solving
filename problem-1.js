@@ -1,6 +1,7 @@
 /**
  * Find the smallest and largest number in the array 
- * let exampleArray = [4, -76, 56, 3,7, -5, 9, -8, 90, 98, 67 ,45, -65, 32, -13, 5, 4, 6, -7,]
+ * @param {number[]}
+ * @return {number} lower and higher
 */
 function findLowerAndLargNumOfArr(arr = []) {
     // define a lower variable
