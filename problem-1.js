@@ -1,39 +1,23 @@
 /**
- * Find the smallest and largest number in the array 
- * @param {number[]}
- * @return {number} lower and higher
-*/
-function findLowerAndLargNumOfArr(arr = []) {
-    // define a lower variable
-    let lower = arr[0]
+ * Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
 
-    // define a higher variable
-    let higher = arr[0]
-
-    // iterate the whole array
-    for (let i = 0; i < arr.length; i++){
-        // let's check is there has any error
-        if (typeof arr[i] !== "number") {
-            console.log(`There has Error index is: ${i}`);
-            continue
-        }
-        
-        // conditionaly check lower number
-        if (lower > arr[i]) {
-            lower = arr[i]
-        }
-
-        // conditionaly check bigger number
-        if (higher < arr[i]) {
-            higher = arr[i]
-        }
-    }
-
-    // return our lower and higher variable
-    return {lower, higher}
+function twoSum(nums = [], target) {
+	if (!Array.isArray(nums)) {
+		return 'nums is not array';
+	}
+	let result = [];
+	for (let i = 0; i < nums.length; i++) {
+		for (let j = i + 1; j < nums.length; j++) {
+			if (nums[i] + nums[j] === target) {
+				result.push(i, j);
+				return result;
+			}
+		}
+	}
+	if (result.length === 0) return 'Invalid Array';
 }
-
-const result1 = findLowerAndLargNumOfArr([ -111, 4, 3, 7, 6, 9, "majed", 6, 8, 7, false, 6, -76, 56, "error", 43, 23, 1, 3, 4, true, 57, 6])
-console.log(result1);
-
-
+console.log(twoSum([54, 87, 90, 52, 76, 12, 45, 36, 52, 76, 45, 87, 88], 142));
