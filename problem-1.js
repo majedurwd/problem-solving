@@ -6,12 +6,18 @@
  */
 
 function twoSum(nums, target) {
-	for (let i = 0; i < nums.length; i++) {
-		let remaining = target - nums[i];
-		for (let j = i + 1; j < nums.length; j++) {
-			if (remaining === nums[j]) return [i, j];
+	const len = nums.length;
+	let val_index_map = {};
+
+	for (let i = 0; i < len; i++) {
+		let curr = nums[i];
+		let prev = target - curr;
+		if (prev in val_index_map) {
+			let prev_index = val_index_map[prev];
+			return [prev_index, i];
 		}
+		val_index_map[curr] = i;
 	}
-	return 'Invalid Array';
+	return [-1, -1];
 }
 console.log(twoSum([54, 87, 90, 52, 76, 12, 45, 36, 52, 76, 45, 87, 88], 142));
