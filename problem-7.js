@@ -16,11 +16,10 @@ const reverse = function (x) {
 	let reverseX = parseInt(String(x).split('').reverse().join(''));
 	if (isNegative) {
 		reverseX *= -1;
-		console.log(reverseX);
 		if (Math.pow(-2, 31) > reverseX) return 0;
 		return reverseX;
 	}
 	if (reverseX > Math.pow(2, 31) - 1) return 0;
 	return reverseX;
 };
-console.log(reverse(-153));
+console.log(reverse(998765689));
